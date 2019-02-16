@@ -1,0 +1,16 @@
+{
+  "name": "@dev-fm/server",
+  "version": "1.0.0",
+  "description": "dev-fm server",
+  "main": "./src",
+  "repository": "https://github.com/noygal/dev-fm.git",
+  "author": "Gal Noy <gal@galnoy.com>",
+  "license": "GNU AGPLv3",
+  "dependencies": {
+    "@dev-fm-ui/application": "^1.0.0",
+    "@dev-fm-ui/bundler": "^1.0.0",
+    "express": "^4.16.4",
+    "react": "^16.8.2",
+    "react-dom": "^16.8.2"
+  }
+}

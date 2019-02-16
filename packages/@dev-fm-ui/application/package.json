@@ -1,0 +1,20 @@
+{
+  "name": "@dev-fm-ui/application",
+  "version": "1.0.0",
+  "description": "Dev fm application",
+  "main": "./src",
+  "repository": "https://github.com/noygal/dev-fm.git",
+  "author": "Gal Noy <gal@galnoy.com>",
+  "license": "GNU AGPLv3",
+  "dependencies": {
+    "@material-ui/core": "^3.9.2",
+    "react": "^16.8.2",
+    "react-dom": "^16.8.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.3.3",
+    "@babel/plugin-proposal-class-properties": "^7.3.3",
+    "@babel/plugin-proposal-decorators": "^7.3.0",
+    "@babel/preset-react": "^7.0.0"
+  }
+}

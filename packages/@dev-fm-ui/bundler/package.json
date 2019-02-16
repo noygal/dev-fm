@@ -1,0 +1,14 @@
+{
+  "name": "@dev-fm-ui/bundler",
+  "version": "1.0.0",
+  "description": "Web application bundler",
+  "main": "./src",
+  "repository": "https://github.com/noygal/dev-fm.git",
+  "author": "Gal Noy <gal@galnoy.com>",
+  "license": "GNU AGPLv3",
+  "dependencies": {
+    "parcel-bundler": "^1.11.0",
+    "react": "^16.8.2",
+    "react-dom": "^16.8.2"
+  }
+}
