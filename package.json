@@ -8,13 +8,19 @@
   "license": "GNU AGPLv3",
   "private": true,
   "scripts": {
+    "clean": "rm -rf .cache dist node_modules",
     "lint:ui": "eslint packages/@dev-fm-ui/* --ext=.js,.jsx --config=packages/@dev-fm-ui/application/.eslintrc.js"
   },
   "workspaces": [
     "packages/@dev-fm/*",
+    "packages/@dev-fm-core/*",
     "packages/@dev-fm-ui/*"
   ],
   "devDependencies": {
+    "@babel/core": "^7.3.3",
+    "@babel/plugin-proposal-class-properties": "^7.3.3",
+    "@babel/plugin-proposal-decorators": "^7.3.0",
+    "@babel/preset-react": "^7.0.0",
     "babel-eslint": "^10.0.1",
     "eslint": "^5.14.0",
     "eslint-config-standard": "^12.0.0",
