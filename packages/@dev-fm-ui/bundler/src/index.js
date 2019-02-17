@@ -1,6 +1,12 @@
 const Bundler = require('parcel-bundler')
 
-const init = ({ isProd = false, filePath, outDir, ...options }) => {
+const init = ({
+  isProd = false,
+  filePath,
+  outDir,
+  target = 'browser',
+  ...options
+}) => {
   const bundler = new Bundler(filePath, {
     outDir,
     watch: !isProd,
@@ -10,7 +16,8 @@ const init = ({ isProd = false, filePath, outDir, ...options }) => {
     ...options
   })
   return {
-    getMiddleware: () => bundler.middleware()
+    getMiddleware: () => bundler.middleware(),
+    bundle: () => bundler.bundle()
   }
 }
 
