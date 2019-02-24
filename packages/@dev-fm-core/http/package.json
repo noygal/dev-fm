@@ -1,13 +1,11 @@
 {
-  "name": "@dev-fm-core/connector-fs",
+  "name": "@dev-fm-core/http",
   "version": "1.0.0",
-  "description": "File system connector",
+  "description": "Http client and endpoints",
   "main": "./src",
   "repository": "https://github.com/noygal/dev-fm.git",
   "author": "Gal Noy <gal@galnoy.com>",
   "license": "GNU AGPLv3",
   "dependencies": {
-    "@dev-fm-core/http": "^1.0.0",
-    "fs-extra": "^7.0.1"
   }
 }

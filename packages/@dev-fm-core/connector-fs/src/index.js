@@ -1,19 +1,20 @@
 
 const fs = require('fs-extra')
 
-const readDir = path => fs.readdir(path)
-const readStats = path => fs.stat(path)
+const readDir = ({ path }) => fs.readdir(path)
+const readStats = ({ path }) => fs.stat(path)
 
-const init = ({ readOnly = false, ...options }) => {
+const init = ({ readOnly = true, ...options }) => {
   return {
     type: 'fs',
     support: {
-      write: readOnly,
+      read: true,
+      write: !readOnly,
       progress: false,
       watch: true,
       stream: true
     },
-    ops: {
+    op: {
       readDir,
       readStats
     }

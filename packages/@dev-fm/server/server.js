@@ -1,10 +1,14 @@
 const { promisify } = require('util')
 const { join } = require('path')
 const express = require('express')
+const bodyParser = require('body-parser')
 const bundler = require('@dev-fm-ui/bundler')
+const connectorEndpoint = require('@dev-fm-core/http').endpoint.connector
 
 const start = async ({ port, logger }) => {
   const app = express()
+  app.use(bodyParser.json())
+
   const bundle = bundler.init({
     isProd: false,
     filePath: join(__dirname, '/src/view/index.html')
@@ -13,8 +17,17 @@ const start = async ({ port, logger }) => {
   logger.info(`Mounting health check endpoint at: '/hc'`)
   app.get('/hc', (req, res) => res.json({ status: 'OK' }))
 
-  logger.info(`Mounting UI at: '/'`)
-  app.use('/', bundle.getMiddleware())
+  logger.info(`Mounting connectors endpoints at: '/connectors'`)
+  connectorEndpoint.init(
+    require('@dev-fm-core/connector-fs').init({}),
+    {
+      app,
+      basePath: '/connector/',
+      logger
+    })
+
+  logger.info(`Mounting UI at`)
+  app.use(bundle.getMiddleware())
 
   logger.info(`Mounting error handler`)
   app.use((err, req, res, next) => {
