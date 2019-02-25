@@ -1,17 +1,13 @@
 {
-  "name": "@dev-fm-ui/application",
+  "name": "@dev-fm-ui/logic",
   "version": "1.0.0",
-  "description": "Dev fm application",
+  "description": "dev-fm application logic",
   "main": "./src",
   "repository": "https://github.com/noygal/dev-fm.git",
   "author": "Gal Noy <gal@galnoy.com>",
   "license": "GNU AGPLv3",
   "dependencies": {
-    "@material-ui/core": "^3.9.2",
-    "mobx-react-lite": "^1.1.0",
-    "react": "^16.8.2",
-    "react-dom": "^16.8.2",
-    "react-keyed-file-browser": "^1.4.3"
+    "mobx": "^5.9.0"
   },
   "devDependencies": {
     "@babel/core": "^7.3.3"

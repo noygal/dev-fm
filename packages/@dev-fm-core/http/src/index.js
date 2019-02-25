@@ -1,5 +1,3 @@
 module.exports = {
-  endpoint: {
-    connector: require('./endpoint/connector')
-  }
+  endpoint: require('./endpoint')
 }

@@ -9,6 +9,7 @@
   "dependencies": {
     "@dev-fm-core/connector-fs": "^1.0.0",
     "@dev-fm-ui/application": "^1.0.0",
+    "@dev-fm-ui/logic": "^1.0.0",
     "body-parser": "^1.18.3",
     "express": "^4.16.4"
   },

@@ -3,7 +3,7 @@ const { join } = require('path')
 const express = require('express')
 const bodyParser = require('body-parser')
 const bundler = require('@dev-fm-ui/bundler')
-const connectorEndpoint = require('@dev-fm-core/http').endpoint.connector
+const { endpoint: connectorEndpoint } = require('@dev-fm-core/http')
 
 const start = async ({ port, logger }) => {
   const app = express()

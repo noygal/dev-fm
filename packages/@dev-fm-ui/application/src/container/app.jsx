@@ -1,10 +1,27 @@
-import React from 'react'
-const clientFactory = require('@dev-fm-core/http/src/client/connector')
+import React, { useEffect, useState } from 'react'
+// import { toJS } from 'mobx'
+import { useObserver } from 'mobx-react-lite'
+import FileBrowser from 'react-keyed-file-browser'
 
-const App = props => (<div>hi</div>)
-
-clientFactory.create({ basePath: '/connector/fs/' }, { fetch, logger: console })
-  .then(client => client.readDir({ path: '/Users/gal/dev/dev-fm' }))
-  .then(console.error)
+const App = ({ filesStore }) => {
+  const [initialized, setInitialized] = useState(false)
+  useEffect(() => {
+    !initialized && filesStore.readDir({ path: filesStore.connector.rootDir })
+    setInitialized(true)
+  })
+  return useObserver(() => (
+    <div style={{ width: '30rem', margin: '0 auto' }}>
+      <FileBrowser
+        startOpen
+        detailRenderer={() => null}
+        files={filesStore.fileList.map(({
+          path: key,
+          mtimeMs: modified,
+          size }) => ({ key, modified, size })
+        )}
+      />
+    </div>
+  ))
+}
 
 export default App

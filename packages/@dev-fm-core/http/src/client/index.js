@@ -10,13 +10,20 @@ const create = ({ basePath }, { fetch, logger }) => {
     },
     body: JSON.stringify(payload)
   })
+    .then(res => res.status < 400
+      ? res.json()
+      : Promise.reject(new Error(`Failed call to op endpoint at: ${r('op', op)}`))
+    )
+
   logger.info('Calling connector discovery endpoint')
   return fetch(r('discovery'))
     .then(res => res.status < 400
       ? res.json()
-      : Promise.reject(new Error(`Could connect to discovery endpoint at: ${r('discovery')}`)))
-    .then(({ ops }) => ops
-      .reduce((acc, op) => ({ [op]: postHttpCall(op), ...acc }), {})
+      : Promise.reject(new Error(`Failed call to discovery endpoint at: ${r('discovery')}`)))
+    .then(({ ops, ...rest }) => ({
+      ...rest,
+      op: ops.reduce((acc, op) => ({ [op]: postHttpCall(op), ...acc }), {})
+    })
     )
 }
 
