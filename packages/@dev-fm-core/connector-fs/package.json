@@ -7,7 +7,6 @@
   "author": "Gal Noy <gal@galnoy.com>",
   "license": "GNU AGPLv3",
   "dependencies": {
-    "@dev-fm-core/http": "^1.0.0",
     "fs-extra": "^7.0.1"
   }
 }

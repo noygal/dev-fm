@@ -13,6 +13,8 @@
     "@dev-fm-ui/application": "^1.0.0"
   },
   "devDependencies": {
+    "@babel/core": "^7.3.4",
+    "@babel/register": "^7.0.0",
     "@dev-fm-ui/bundler": "^1.0.0",
     "electron": "^4.0.5"
   }

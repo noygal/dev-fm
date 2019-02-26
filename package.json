@@ -11,8 +11,11 @@
     "clean:node": "find . -name 'node_modules' -type d -prune -exec rm -rf '{}' +",
     "clean:cache": "find . -name '.cache' -type d -prune -exec rm -rf '{}' +",
     "clean:dist": "find . -name 'dist' -type d -prune -exec rm -rf '{}' +",
-    "clean": "npm run clean:node; npm run clean:cache; npm run clean:dist;",
-    "lint:ui": "eslint packages/@dev-fm-ui/* --ext=.js,.jsx --config=packages/@dev-fm-ui/application/.eslintrc.js"
+    "clean": "yarn clean:node; yarn clean:cache; yarn clean:dist;",
+    "lint:ui": "eslint packages/@dev-fm-ui/* --ext=.js,.jsx --config=packages/@dev-fm-ui/application/.eslintrc.js",
+    "lint:node": "eslint packages/@dev-fm-core/* packages/@dev-fm/* --ext=.js,.jsx --ignore-path .gitignore",
+    "start:server": "yarn workspace @dev-fm/server start",
+    "start:desktop": "yarn workspace @dev-fm/desktop start"
   },
   "workspaces": {
     "packages": [
