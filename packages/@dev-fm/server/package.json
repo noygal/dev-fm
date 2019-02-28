@@ -8,6 +8,7 @@
   "license": "GNU AGPLv3",
   "dependencies": {
     "@dev-fm-core/connector-fs": "^1.0.0",
+    "@dev-fm-core/connector-ftp": "^1.0.0",
     "@dev-fm-ui/application": "^1.0.0",
     "@dev-fm-ui/logic": "^1.0.0",
     "body-parser": "^1.18.3",

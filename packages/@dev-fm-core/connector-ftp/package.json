@@ -1,0 +1,12 @@
+{
+  "name": "@dev-fm-core/connector-ftp",
+  "version": "1.0.0",
+  "description": "Ftp connector",
+  "main": "./src",
+  "repository": "https://github.com/noygal/dev-fm.git",
+  "author": "Gal Noy <gal@galnoy.com>",
+  "license": "GNU AGPLv3",
+  "dependencies": {
+    "ftp": "^0.3.10"
+  }
+}

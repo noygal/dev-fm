@@ -1,21 +1,19 @@
-
-const rootDir = require('os').homedir()
-const { readDir, readStats } = require('./ops')
+const rootDir = 'ftp://ftp.cs.brown.edu/pub'
+const { readDir } = require('./ops')
 
 const init = ({ readOnly = true, ...options }) => {
   return {
-    type: 'fs',
+    type: 'ftp',
     rootDir,
     support: {
       read: true,
       write: !readOnly,
       progress: false,
-      watch: true,
+      watch: false,
       stream: true
     },
     op: {
-      readDir,
-      readStats
+      readDir
     }
   }
 }

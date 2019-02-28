@@ -14,10 +14,7 @@ const App = ({ filesStore }) => {
       <FileBrowser
         startOpen
         detailRenderer={() => null}
-        files={filesStore.fileList.map(({
-          path: key,
-          mtimeMs: modified,
-          size }) => ({ key, modified, size })
+        files={filesStore.fileList.map(({ path, ...rest }) => ({ key: path, ...rest })
         )}
       />
     </div>

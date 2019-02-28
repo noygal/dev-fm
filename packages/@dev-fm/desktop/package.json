@@ -7,7 +7,7 @@
   "author": "Gal Noy <gal@galnoy.com>",
   "license": "GNU AGPLv3",
   "scripts": {
-    "start": "node bundle.js; electron ."
+    "start": "electron ."
   },
   "dependencies": {
     "@dev-fm-ui/application": "^1.0.0"

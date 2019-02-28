@@ -16,9 +16,7 @@ export default class FilesStore {
     readDir ({ path }) {
       this.files[path] = { path, isDir: true }
       return this.connector.op.readDir({ path })
-        .then(results => results.map(file => ({ path: `${path}/${file}` })))
         .then(this.addFiles)
-        .then(files => Promise.all(files.map(this.readStats)))
     }
 
     @action

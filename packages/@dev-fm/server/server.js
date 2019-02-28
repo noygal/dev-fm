@@ -5,6 +5,7 @@ const bodyParser = require('body-parser')
 const bundler = require('@dev-fm-ui/bundler')
 const { endpoint: connectorEndpoint } = require('@dev-fm-core/http')
 
+// Imperative server initiation
 const start = async ({ port, logger }) => {
   const app = express()
   app.use(bodyParser.json())
@@ -19,14 +20,17 @@ const start = async ({ port, logger }) => {
 
   logger.info(`Mounting connectors endpoints at: '/connectors'`)
   connectorEndpoint.init(
-    require('@dev-fm-core/connector-fs').init({}),
+    [
+      require('@dev-fm-core/connector-fs').init({}),
+      require('@dev-fm-core/connector-ftp').init({})
+    ],
     {
       app,
       basePath: '/connector/',
       logger
     })
 
-  logger.info(`Mounting UI at`)
+  logger.info(`Mounting UI`)
   app.use(bundle.getMiddleware())
 
   logger.info(`Mounting error handler`)
@@ -46,20 +50,27 @@ const start = async ({ port, logger }) => {
     close: () => server.close()
   }
 }
+
+// Configuration
 const logger = console
 const config = {
-  port: 3000,
+  port: process.env.PORT || 3000,
   logger
 }
 
+// Process error handling
 process.on('unhandledRejection', error => {
   console.error('unhandledRejection')
   console.error(error)
   config.logger.error(error)
 })
 
+// Exporting the server
 module.exports = start(config)
-  .then(() => logger.info('Server initiation completed'))
+  .then(server => {
+    logger.info('Server initiation completed')
+    return server
+  })
   .catch(error => {
     logger.error('Server initiation failed')
     logger.error(error)
